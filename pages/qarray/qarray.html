@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <title>qarray.h</title>
+
+    <body>
+        <p>
+            A macro-based, ANSI C compliant dynamic array implementation. This array implementation</br>
+            is designed to be:</br>
+
+            <ul>
+                <li>Easy to use</li>
+                <li>Allow for both stack and heap operations</li>
+                <li>Typesafe</li>
+            </ul>
+
+            This library is quite simple to integrate into existing C projects. All the programemr</br>
+            must do is include the header, define their types, and they can begin using the array.</br>
+            This implementation also comes with all the expected operations that are implemented in</br>
+            traditional arrays. A complete list can be found below.
+
+            <h3>Operations</h3>
+            <ul>
+                <li>Appending</li>
+                <li>Insertion</li>
+                <li>Popping</li>
+                <li>Removing</li>
+                <li>Searching</li>
+            </ul>
+
+            <h3>Important Notes</h3>
+            A tactic this implementation takes to operations is the settings macro defined for</br>
+            each array. Each array type has a programmer-defined macro that carries settings, which</br>
+            are passed as arguments to each macro. This is so it does not get too cumbersome for the</br>
+            programmer.</br>
+            </br>
+            In order to use this, you will need to include the following headers:
+
+            <ul>
+                <li>string.h</li>
+                <li>stdlib.h</li>
+            </ul>
+
+            </br>
+            Due to how macro arguments work, all array operations are actually wrappers around the</br>
+            macro with the same name, but prefixed with double underscores. The programmer should not</br>
+            make use of <b>any</b> macros prefixed with a double underscore.
+
+            <h3>Configuration</h3>
+            This array implementation defines the following compile-time options, which should be defined</br>
+            before the header is included. If it is not defined, a default will be provided.
+
+            <h5>QARRAY_STACKFUL</h5>
+            If this macro is defined, the array operations will behave in a stackful manner. Nothing will</br>
+            be done that involves heap memory.</br>
+
+            <h5>QARRAY_RESIZE</h5>
+            If this macro is defined, the array will invoke this macro function to calculate the next size</br>
+            of the array during a resize operation. If the array is stackful, this is not necessary.</br>
+            An example (which is also the default) would be:
+            <pre>
+            <code>
+    #define QARRAY_RESIZE(current_size) \
+        current_size + 5
+            </code>
+            </pre>
+
+            <h5>QARRAY_INITIAL_SIZE</h5>
+            If this macro is defined, it will be used as the initial size of a heap-allocated array. If</br>
+            the array is stackful, this is not necessary. If it is not defined, it defaults to 5.</br>
+        </p>
+    </body>
+</html>

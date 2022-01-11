@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <title>libkey</title>
+
+    <body>
+        <p>
+            <h3>libkey</h3>            
+
+            A C library developed for platforms that support the ncurses terminal handling library.</br>
+            Its purpose is to make handling the keyboard inside of a terminal easier by giving the</br>
+            programmer the tools needed to emulate the modal behavior of editors like Vi and Vim.</br>
+            </br>
+            The library has interfaces for creating modes, and attaching sequences of keys that can</br>
+            execute callbacks upon their completion to the modes. Key sequences can be prefixed with</br>
+            a number to tell the callback how many times to execute. Callbacks can also accept an</br>
+            arbitrary number of 'argument' keys, which allows the programmer to simulate behavior</br>
+            similar to the motions, marking, and register features found in Vi and Vim.</br>
+            </br>
+            The project follows a couple main design principles.</br>
+            <ul>
+                <li>Portability (100% ANSI C compliance)</li>
+                <li>Being tested to hell and back</li>
+                <li>Being stackful (no calls to malloc and friends)</li>
+                <li>Be designed around single-threaded applications</li>
+            </ul>
+        </p>
+    </body>
+</html>
